@@ -19,6 +19,10 @@
   background-image: url("assets/icons/marker.png");
 }
 
+.leaflet-pm-toolbar .icon-circle {
+  background-image: url("assets/icons/circle.png");
+}
+
 .leaflet-pm-toolbar .icon-polygon {
   background-image: url("assets/icons/draw.png");
 }

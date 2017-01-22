@@ -62,6 +62,8 @@ L.PM.Draw.Line = L.PM.Draw.extend({
         // remove layer
         this._map.removeLayer(this._layerGroup);
 
+        console.log(this._shape);
+
         // fire drawend event
         this._map.fire('pm:drawend', { shape: this._shape });
 

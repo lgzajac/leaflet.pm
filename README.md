@@ -1,3 +1,12 @@
+edit:
+
+circle support added, (w/ gju added. see demo code)
+
+seems to be working (create/resize/drag)
+
+todo: test, and clean up before sending pull request
+
+
 # Leaflet Geometry Management
 [![CDNJS](https://img.shields.io/cdnjs/v/leaflet.pm.svg)](https://cdnjs.com/libraries/leaflet.pm)
 

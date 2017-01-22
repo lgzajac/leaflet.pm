@@ -29,10 +29,12 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 }).addTo(map4);
 
 map2.pm.addControls({
-    drawMarker: false,
+    drawMarker: true,
     drawPolygon: true,
-    editPolygon: false,
-    drawPolyline: false,
+    drawCircle: true,
+    drawPolyline: true,
+    editPolygon: true,
+    dragPolygon: true,  //and?
     deleteLayer: true,
 });
 // map2.pm.addControls({

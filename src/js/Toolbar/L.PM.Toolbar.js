@@ -5,10 +5,11 @@
 L.PM.Toolbar = L.Class.extend({
     options: {
         drawMarker: true,
+        drawCircle: true,
         drawPolygon: true,
         drawPolyline: true,
         editPolygon: true,
-        dragPolygon: false,
+        dragPolygon: true,
         deleteLayer: true,
         position: 'topleft',
     },
@@ -107,6 +108,21 @@ L.PM.Toolbar = L.Class.extend({
             position: this.options.position,
         };
 
+        const drawCircleButton = {
+            className: 'icon-circle',
+            onClick: () => {
+
+            },
+            afterClick: () => {
+                // toggle drawing mode
+                this.map.pm.Draw.Circle.toggle();
+            },
+            doToggle: true,
+            toggleStatus: false,
+            disableOtherButtons: true,
+            position: this.options.position,
+        };
+
         const drawLineButton = {
             className: 'icon-polyline',
             onClick: () => {
@@ -152,6 +168,7 @@ L.PM.Toolbar = L.Class.extend({
         };
 
         this._addButton('drawMarker', new L.Control.PMButton(drawMarkerButton));
+        this._addButton('drawCircle', new L.Control.PMButton(drawCircleButton));
         this._addButton('drawPolygon', new L.Control.PMButton(drawPolyButton));
         this._addButton('drawPolyline', new L.Control.PMButton(drawLineButton));
         this._addButton('editPolygon', new L.Control.PMButton(editButton));

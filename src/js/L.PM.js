@@ -7,6 +7,9 @@
 
 L.PM = L.PM || {
     initialize() {
+
+        console.log('initing here6')
+
         this.addInitHooks();
     },
     addInitHooks() {
@@ -22,6 +25,12 @@ L.PM = L.PM || {
 
         L.Marker.addInitHook(initMarker);
 
+        function initCircle() {
+            console.log('circle hook');
+            this.pm = new L.PM.Edit.Circle(this);
+        }
+
+        L.Circle.addInitHook(initCircle);
 
         function initPolygon() {
             this.pm = new L.PM.Edit.Poly(this);

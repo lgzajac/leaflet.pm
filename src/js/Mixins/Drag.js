@@ -90,24 +90,31 @@ const DragMixin = {
             lng: latlng.lng - this._tempDragCoord.lng,
         };
 
-        // create the new coordinates array
-        let coords;
-
-        if(this._layer instanceof L.Polygon) {
-            coords = this._layer._latlngs[0];
-        } else {
-            coords = this._layer._latlngs;
+        if (this._layer instanceof L.Circle) {
+            this._layer.setLatLng(latlng).redraw();
         }
+        else {
+            // create the new coordinates array
 
-        const newLatLngs = coords.map((currentLatLng) => {
-            return {
-                lat: currentLatLng.lat + deltaLatLng.lat,
-                lng: currentLatLng.lng + deltaLatLng.lng,
-            };
-        });
+            let coords;
 
-        // set new coordinates and redraw
-        this._layer.setLatLngs(newLatLngs).redraw();
+            if(this._layer instanceof L.Polygon) {
+                coords = this._layer._latlngs[0];
+            }
+            else {
+                coords = this._layer._latlngs;
+            }
+
+            const newLatLngs = coords.map((currentLatLng) => {
+                return {
+                    lat: currentLatLng.lat + deltaLatLng.lat,
+                    lng: currentLatLng.lng + deltaLatLng.lng,
+                };
+            });
+            // set new coordinates and redraw
+            this._layer.setLatLngs(newLatLngs).redraw();
+
+        }
 
         // save current latlng for next delta calculation
         this._tempDragCoord = latlng;

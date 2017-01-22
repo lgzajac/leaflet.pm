@@ -15,7 +15,9 @@ gulp.task('scripts', () =>
         'src/js/L.PM.js',
         'src/js/L.PM.Map.js',
         'src/js/Draw/L.PM.Draw.js',
+        'src/js/Draw/L.PM.Draw.Line.js',
         'src/js/Edit/L.PM.Edit.js',
+        'src/js/Edit/L.PM.Edit.Line.js',
         'src/js/**/*.js',
     ])
 
@@ -32,7 +34,7 @@ gulp.task('scripts', () =>
     .pipe(concat('leaflet.pm.js'))
 
     // minify
-    .pipe(uglify())
+    //.pipe(uglify())
 
     // rename
     .pipe(rename({ extname: '.min.js' }))
